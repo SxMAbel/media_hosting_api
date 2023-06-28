@@ -1,6 +1,6 @@
 # Media Hosting API
 
-[![License](https://img.shields.io/badge/license-Apache-blue.svg)](https://github.com/SxMAbel/media_hosting_api/blob/main/LICENSE) 
+[![License](https://img.shields.io/badge/license-Apache-blue.svg)](https://github.com/SxMAbel/media_hosting_api/blob/main/LICENSE)
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/SxMAbel/media_hosting_api/pulls)
 ![GitHub Stars](https://img.shields.io/github/stars/SxMAbel/media_hosting_api.svg)
 [![Issues](https://img.shields.io/github/issues/SxMAbel/media_hosting_api.svg)](https://github.com/SxMAbel/media_hosting_api/issues)
@@ -17,7 +17,6 @@ The following endpoints are available in the Media Hosting API:
 - _GET_ **`/api/v1/play/:id`** - _Stream only videos or mp3 files. Turns link into stream source._
 - _POST_ **`/api/v1/upload`** - _Upload either images, video files, audio files. Returns 'id', 'url'._
 - _GET_ **`/api/v1/view/:id`** - _Get source link of the media that includes the ID. Returns 'url'._
-
 
 ## Accessing Errors
 
@@ -41,11 +40,12 @@ If you have identified any bugs in the API and have fixed them, we encourage you
 
 ## Support
 
-If you need any assistance or have questions related to the Media Hosting API, please open create an issue with your question. 
+If you need any assistance or have questions related to the Media Hosting API, please open create an issue with your question.
 
 ## Contributors
-Special thanks to the all the contributors who have helped make the Media Hosting API even better!
-<!-- CONTRIBUTORS_START -->  
 
+Special thanks to the all the contributors who have helped make the Media Hosting API even better!
+
+<!-- CONTRIBUTORS_START -->
 
 <!-- CONTRIBUTORS_END -->
