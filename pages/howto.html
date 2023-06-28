@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+            border-bottom: 1px solid #ccc;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        p {
+            margin-top: 10px;
+        }
+
+        /* Dark mode styles */
+        body.dark-mode {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+
+        body.dark-mode h2 {
+            color: #f0f0f0;
+            border-bottom-color: #999;
+        }
+
+        body.dark-mode ul {
+            color: #f0f0f0;
+        }
+
+        body.dark-mode code {
+            background-color: #555;
+            color: #f0f0f0;
+        }
+
+        body.dark-mode #gitlink {
+            color: lightskyblue;
+        }
+
+        /* Light mode styles */
+        body.light-mode {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        body.light-mode h2 {
+            color: #333;
+            border-bottom-color: #ccc;
+        }
+
+        body.light-mode ul {
+            color: #333;
+        }
+
+        body.light-mode code {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        /* Fancy button styles */
+        .fancy-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .fancy-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Endpoints</h2>
+
+    <ul>
+        <li>
+            <strong>GET</strong>
+            <code>/api/v1/check/:id</code> - Check if a media file exists by ID. Returns 'isFound', 'id', 'url'.
+        </li>
+        <li>
+            <strong>DELETE</strong>
+            <code>/api/v1/delete/:id</code> - Remove a file by ID. Returns 'deleted', 'message'.
+        </li>
+        <li>
+            <strong>GET</strong>
+            <code>/api/v1/play/:id</code> - Stream only videos or mp3 files. Turns link into stream source.
+        </li>
+        <li>
+            <strong>POST</strong>
+            <code>/api/v1/upload</code> - Upload either images, video files, audio files. Returns 'id', 'url'.
+        </li>
+        <li>
+            <strong>GET</strong>
+            <code>/api/v1/view/:id</code> - Get source link of the media that includes the ID. Returns 'url'.
+        </li>
+    </ul>
+
+    <h2>Accessing Errors</h2>
+
+    <p>
+        if any error is encountered to access the error, use <code>response.data.error</code>
+    </p>
+
+    <p>
+        If any bugs found and you fixed them please create a <a id="gitlink"
+            href="https://github.com/SxMAbel/media_hosting_api">pull
+            request</a>, much appreciated. &lt;3
+    </p>
+
+    <button id="dark-mode-button" class="fancy-button">Dark Mode</button>
+    <button id="light-mode-button" class="fancy-button">Light Mode</button>
+
+    <script>
+        // Dark mode button functionality
+        const darkModeButton = document.getElementById('dark-mode-button');
+        darkModeButton.addEventListener('click', function () {
+            document.body.classList.add('dark-mode');
+        });
+
+        // Light mode button functionality
+        const lightModeButton = document.getElementById('light-mode-button');
+        lightModeButton.addEventListener('click', function () {
+            document.body.classList.remove('dark-mode');
+        });
+    </script>
+</body>
+
+</html>
