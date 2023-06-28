@@ -1,6 +1,6 @@
 # Media Hosting API
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/SxMAbel/media_hosting_api/blob/main/LICENSE) 
+[![License](https://img.shields.io/badge/license-Apache-blue.svg)](https://github.com/SxMAbel/media_hosting_api/blob/main/LICENSE) 
 [![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg)](https://github.com/SxMAbel/media_hosting_api/pulls)
 ![GitHub Stars](https://img.shields.io/github/stars/SxMAbel/media_hosting_api.svg)
 [![Issues](https://img.shields.io/github/issues/SxMAbel/media_hosting_api.svg)](https://github.com/SxMAbel/media_hosting_api/issues)
