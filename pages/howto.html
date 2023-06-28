@@ -92,6 +92,8 @@
             background-color: #0056b3;
         }
     </style>
+
+    <title>Media Hosting API</title>
 </head>
 
 <body>
@@ -132,22 +134,110 @@
             request</a>, much appreciated. &lt;3
     </p>
 
-    <button id="dark-mode-button" class="fancy-button">Dark Mode</button>
-    <button id="light-mode-button" class="fancy-button">Light Mode</button>
+     
 
-    <script>
-        // Dark mode button functionality
-        const darkModeButton = document.getElementById('dark-mode-button');
-        darkModeButton.addEventListener('click', function () {
+    <!--Dark Mode Toggle Switch-->
+
+    <style>
+        .button-container {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+        }
+        
+        .toggle-switch {
+          position: relative;
+          display: inline-block;
+          width: 60px;
+          height: 34px;
+        }
+        
+        .toggle-switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+        
+        .toggle-slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          transition: .4s;
+          border-radius: 34px;
+        }
+        
+        .toggle-slider:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+        }
+        
+        .toggle-slider.sun-mode:before {
+          content: "\2600"; /* Unicode for sun symbol */
+          font-size: 14px;
+          line-height: 26px;
+          text-align: center;
+          color: #FDB813;
+        }
+        
+        .toggle-slider.moon-mode:before {
+          content: "\1F319"; /* Unicode for crescent moon symbol */
+          font-size: 16px;
+          line-height: 26px;
+          text-align: center;
+          color: #000000;
+        }
+        
+        input:checked + .toggle-slider {
+          background-color: #FDB813;
+        }
+        
+        input:checked + .toggle-slider:before {
+          transform: translateX(26px);
+        }
+        
+        .dark-mode {
+          background-color: #000000;
+          color: #FFFFFF;
+        }
+      </style>
+      
+      <div class="button-container">
+        <label class="toggle-switch">
+          <input type="checkbox" id="dark-mode-toggle">
+          <span class="toggle-slider sun-mode"></span>
+        </label>
+      </div>
+      
+      <script>
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const toggleSlider = document.querySelector('.toggle-slider');
+      
+        darkModeToggle.addEventListener('change', function () {
+          if (this.checked) {
             document.body.classList.add('dark-mode');
-        });
-
-        // Light mode button functionality
-        const lightModeButton = document.getElementById('light-mode-button');
-        lightModeButton.addEventListener('click', function () {
+            toggleSlider.classList.remove('sun-mode');
+            toggleSlider.classList.add('moon-mode');
+          } else {
             document.body.classList.remove('dark-mode');
+            toggleSlider.classList.remove('moon-mode');
+            toggleSlider.classList.add('sun-mode');
+          }
         });
-    </script>
+      </script>
+      
+      
+      
 </body>
 
 </html>
