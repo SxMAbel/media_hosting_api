@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h2 {
+    color: #333;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  
+  code {
+    background-color: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+  
+  p {
+    margin-top: 10px;
+  }
+  
+  /* Dark mode styles */
+  body.dark-mode {
+    background-color: #333;
+    color: #f0f0f0;
+  }
+  
+  body.dark-mode h2 {
+    color: #f0f0f0;
+    border-bottom-color: #999;
+  }
+  
+  body.dark-mode ul {
+    color: #f0f0f0;
+  }
+  
+  body.dark-mode code {
+    background-color: #555;
+    color: #f0f0f0;
+  }
+  
+  body.dark-mode #gitlink {
+    color: lightskyblue;
+  }
+  
+  /* Light mode styles */
+  body.light-mode {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  body.light-mode h2 {
+    color: #333;
+    border-bottom-color: #ccc;
+  }
+  
+  body.light-mode ul {
+    color: #333;
+  }
+  
+  body.light-mode code {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  /* Fancy button styles */
+  .fancy-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .fancy-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Dark Mode Toggle Switch Styles */
+  .button-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+  
+  .toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* ... (rest of the styles for the Dark Mode Toggle Switch) ... */
+  
+  /* Navigation Arrows Styles */
+  .navigation-arrows {
+    margin-top: 20px;
+  }
+  
+  .navigation-arrows a {
+    margin-right: 10px;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .navigation-arrows a:hover {
+    color: #0056b3;
+  }
+  
