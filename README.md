@@ -5,6 +5,8 @@
 ![GitHub Stars](https://img.shields.io/github/stars/SxMAbel/media_hosting_api.svg)
 [![Issues](https://img.shields.io/github/issues/SxMAbel/media_hosting_api.svg)](https://github.com/SxMAbel/media_hosting_api/issues)
 [![Pull Requests](https://img.shields.io/github/issues-pr/SxMAbel/media_hosting_api.svg)](https://github.com/SxMAbel/media_hosting_api/pulls)
+![GitHub Latest Pre-Release)](https://img.shields.io/github/v/release/SxMAbel/media_hosting_api?include_prereleases&label=pre-release&logo=github)  
+![GitHub Latest Release)](https://img.shields.io/github/v/release/SxMAbel/media_hosting_api?logo=github)
 
 **Media Hosting API** is an open-source solution for streaming and managing media files. It provides a simple and efficient way to upload, access, and delete various types of media files. With Media Hosting API, you can streamline your media hosting needs and easily integrate media file management into your applications.
 
