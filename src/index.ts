@@ -1,9 +1,10 @@
-const express = require("express");
-const RequestRouter = require("./routes/request.router");
-const morgan = require("morgan");
-const path = require("path");
+import express from "express";
+import morgan from "morgan";
+import path from "path";
 
-const { port } = require("./config");
+import RequestRouter from "./routes/request.router";
+import config from "./config";
+
 const app = express();
 
 app.use(express.static(__dirname + "/uploads"));
@@ -23,6 +24,6 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "./pages/howto.html"));
 });
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+app.listen(config.port, () => {
+  console.log(`Server is running on port ${config.port}`);
 });
