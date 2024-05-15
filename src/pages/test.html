@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload Test</title>
+</head>
+
+<body>
+    <h1>File Upload Test</h1>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileInput">
+        <button type="submit">Upload File</button>
+    </form>
+    <div id="uploadResult"></div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const formData = new FormData();
+            const fileInput = document.getElementById('fileInput').files[0];
+            formData.append('file', fileInput);
+
+            try {
+                const response = await fetch('/api/v1/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await response.json();
+                document.getElementById('uploadResult').innerText = JSON.stringify(data);
+            } catch (error) {
+                console.error('Error uploading file:', error);
+                document.getElementById('uploadResult').innerText = 'Error uploading file. Please try again.';
+            }
+        });
+    </script>
+</body>
+
+</html>

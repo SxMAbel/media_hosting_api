@@ -5,7 +5,7 @@ import config from "../config";
 
 /** Get source link of the media that includes the ID. */
 export default function ViewController(req: Request, res: Response) {
-  for (const file of readdirSync("./uploads")) {
+  for (const file of readdirSync("./dist/uploads")) {
     if (file.includes(req.params.id)) {
       return res.status(200).json({ url: config.domain + `/${file}` });
     }

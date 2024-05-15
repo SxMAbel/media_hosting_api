@@ -6,7 +6,7 @@ import { Response, Request } from "express";
 export default function DeleteController(req: Request, res: Response) {
   let deleted = false;
 
-  for (const file of readdirSync("./uploads")) {
+  for (const file of readdirSync("./dist/uploads")) {
     if (file.includes(req.params.id)) {
       unlink(path.join(__dirname, "../uploads", file), (err) => {
         if (err) throw err;

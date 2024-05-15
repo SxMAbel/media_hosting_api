@@ -1,16 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Hosting API Documentation</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       margin: 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1,
+    h2 {
+      color: #333;
     }
 
     h2 {
-      color: #333;
       border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+      margin-top: 30px;
     }
 
     ul {
@@ -32,160 +43,45 @@
       margin-top: 10px;
     }
 
-    /* Dark mode styles */
-    body.dark-mode {
+    .dark-mode {
       background-color: #333;
       color: #f0f0f0;
     }
 
-    body.dark-mode h2 {
-      color: #f0f0f0;
-      border-bottom-color: #999;
-    }
-
-    body.dark-mode ul {
+    .dark-mode h1,
+    .dark-mode h2 {
       color: #f0f0f0;
     }
 
-    body.dark-mode code {
+    .dark-mode code {
       background-color: #555;
-      color: #f0f0f0;
     }
 
-    body.dark-mode #gitlink {
+    #gitlink {
       color: lightskyblue;
     }
 
-    /* Light mode styles */
-    body.light-mode {
-      background-color: #f0f0f0;
-      color: #333;
-    }
-
-    body.light-mode h2 {
-      color: #333;
-      border-bottom-color: #ccc;
-    }
-
-    body.light-mode ul {
-      color: #333;
-    }
-
-    body.light-mode code {
-      background-color: #f0f0f0;
-      color: #333;
-    }
-
-    /* Fancy button styles */
-    .fancy-button {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .fancy-button:hover {
-      background-color: #0056b3;
-    }
-  </style>
-
-  <title>Media Hosting API</title>
-</head>
-
-<body>
-  <h2>Endpoints</h2>
-
-  <ul>
-    <li>
-      <strong>GET</strong>
-      <code>/api/v1/check/:id</code> - Check if a media file exists by ID. Returns 'isFound', 'id', 'url'.
-    </li>
-    <li>
-      <strong>DELETE</strong>
-      <code>/api/v1/delete/:id</code> - Remove a file by ID. Returns 'deleted', 'message'.
-    </li>
-    <li>
-      <strong>GET</strong>
-      <code>/api/v1/play/:id</code> - Stream only videos or mp3 files. Turns link into stream source.
-    </li>
-    <li>
-      <strong>POST</strong>
-      <code>/api/v1/upload</code> - Upload either images, video files, audio files. Returns 'id', 'url'.
-    </li>
-    <li>
-      <strong>GET</strong>
-      <code>/api/v1/view/:id</code> - Get source link of the media that includes the ID. Returns 'url'.
-    </li>
-  </ul>
-
-  <h2>Accessing Errors</h2>
-
-  <p>
-    if any error is encountered to access the error, use <code>response.data.error</code>
-  </p>
-
-  <p>
-    If any bugs found and you fixed them please create a <a id="gitlink"
-      href="https://github.com/SxMAbel/media_hosting_api">pull
-      request</a>, much appreciated. &lt;3
-  </p>
-
-
-
-  <!--Dark Mode Toggle Switch-->
-
-  <style>
-    .button-container {
+    .toggle-switch {
       position: absolute;
       top: 10px;
       right: 10px;
     }
 
-    .toggle-switch {
+    .toggle-slider {
       position: relative;
       display: inline-block;
       width: 60px;
       height: 34px;
-    }
-
-    .toggle-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .toggle-slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
       background-color: #ccc;
-      transition: .4s;
       border-radius: 34px;
-    }
-
-    .toggle-slider:before {
-      position: absolute;
-      content: "";
-      height: 26px;
-      width: 26px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      transition: .4s;
-      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.4s;
     }
 
     .toggle-slider.sun-mode:before {
       content: "\2600";
       /* Unicode for sun symbol */
-      font-size: 14px;
+      font-size: 16px;
       line-height: 26px;
       text-align: center;
       color: #FDB813;
@@ -200,31 +96,66 @@
       color: #000000;
     }
 
-    input:checked+.toggle-slider {
+    .toggle-slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      border-radius: 50%;
+      transition: 0.4s;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    input[type="checkbox"]:checked+.toggle-slider {
       background-color: #FDB813;
     }
 
-    input:checked+.toggle-slider:before {
+    input[type="checkbox"]:checked+.toggle-slider:before {
       transform: translateX(26px);
     }
-
-    .dark-mode {
-      background-color: #000000;
-      color: #FFFFFF;
-    }
   </style>
+</head>
 
-  <div class="button-container">
-    <label class="toggle-switch">
+<body>
+  <header>
+    <h1>Media Hosting API Documentation</h1>
+    <div class="toggle-switch">
       <input type="checkbox" id="dark-mode-toggle">
-      <span class="toggle-slider sun-mode"></span>
-    </label>
-  </div>
-
+      <label class="toggle-slider sun-mode" for="dark-mode-toggle"></label>
+    </div>
+  </header>
+  <main>
+    <section>
+      <h2>Endpoints</h2>
+      <ul>
+        <li><strong>GET</strong> <code>/api/v1/check/:id</code> - Check if a media file exists by ID. Returns 'isFound',
+          'id', 'url'.</li>
+        <li><strong>DELETE</strong> <code>/api/v1/delete/:id</code> - Remove a file by ID. Returns 'deleted', 'message'.
+        </li>
+        <li><strong>GET</strong> <code>/api/v1/play/:id</code> - Stream only videos or mp3 files. Turns link into stream
+          source.</li>
+        <li><strong>POST</strong> <code>/api/v1/upload</code> - Upload either images, video files, audio files. Returns
+          'id', 'url'.</li>
+        <li><strong>GET</strong> <code>/api/v1/view/:id</code> - Get source link of the media that includes the ID.
+          Returns 'url'.</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Accessing Errors</h2>
+      <p>If any error is encountered when accessing the error, use <code>response.data.error</code>.</p>
+      <p>If any bugs are found and you fix them, please create a <a id="gitlink"
+          href="https://github.com/SxMAbel/media_hosting_api">pull request</a>, much appreciated. &lt;3</p>
+    </section>
+  </main>
   <script>
     const darkModeToggle = document.getElementById('dark-mode-toggle');
     const toggleSlider = document.querySelector('.toggle-slider');
-
     darkModeToggle.addEventListener('change', function () {
       if (this.checked) {
         document.body.classList.add('dark-mode');
@@ -237,9 +168,6 @@
       }
     });
   </script>
-
-
-
 </body>
 
 </html>
